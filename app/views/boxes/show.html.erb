@@ -1,0 +1,42 @@
+<style>
+.drop {
+  border: 2px solid black;
+  margin: 4px;
+}
+</style>
+
+<br><br><br><br><br>
+<%= link_to 'Home', index_path %>
+<h1><%= @box.name %></h1>
+<%= link_to "Add drop", new_drop_path(@box) %>
+<% len = @tier.length %>
+<% @box.drops.each do |d| %>
+<div class="drop" >
+  <h3><%= d.name %></h3>
+  <table>
+  <thead>
+  <tr>
+  <th>Name</th>
+  <th>MSRP</th>
+  <% @tier.each do |t| %>
+    <th><%= t %></th>
+  <% end %>
+  <span><%= link_to "Add Entity", new_entity_path(d) %></span>
+  </tr>
+  </thead>
+  <tbody>
+  <% d.entities.each do |e| %>
+    <tr>
+      <td><%= e.name %></td>
+      <td><%= e.msrp %></td>
+      <% for i in (0..len) %>
+        <td><%= e.price[@tier[i]] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+
+  </tbody>
+  
+  </table>
+  </div>
+<% end %>

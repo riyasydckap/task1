@@ -1,0 +1,15 @@
+<%= form_for @entity do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :msrp %>
+  <%= f.number_field :msrp %>
+  <br>
+  <% @tiers.each do |t| %>
+    <%= f.label t  %>
+    <%= f.number_field :price , multiple: true %>
+    <br>
+  <% end %>
+  <%= f.text_field :drop_id,value: @drop.to_s, hidden: true %>
+  <%= f.submit "Create" %>
+<% end %>

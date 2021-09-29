@@ -1,0 +1,12 @@
+<%= form_for @box, url: 'boxes#create' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :sku_prefix %>
+  <%= f.text_field :sku_prefix %>
+  <br>
+  <%= f.label :sku_postfix %>
+  <%= f.text_field :sku_postfix %>
+  <br>
+  <%= f.submit "Create" %>
+<% end %>

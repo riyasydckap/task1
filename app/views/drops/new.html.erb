@@ -1,0 +1,7 @@
+<%= form_for @drop do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.text_field :box_id,value: @box.to_s, hidden: true %>
+  <%= f.submit "Create" %>
+<% end %>

@@ -3,7 +3,7 @@ class Entity
   include Mongoid::Timestamps
 
   field :name, type: String
-  field :MSRP, type: Integer
+  field :msrp, type: Integer
   field :price, type: Hash
 
   belongs_to :drop
