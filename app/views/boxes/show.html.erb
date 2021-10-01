@@ -19,7 +19,7 @@
   <th>Name</th>
   <th>MSRP</th>
   <% @tier.each do |t| %>
-    <th><%= t %></th>
+    <th><%= t.name %></th>
   <% end %>
   <span><%= link_to "Add Entity", new_entity_path(d) %></span>
   </tr>
@@ -29,8 +29,12 @@
     <tr>
       <td><%= e.name %></td>
       <td><%= e.msrp %></td>
-      <% for i in (0..len) %>
-        <td><%= e.price[@tier[i]] %></td>
+      <% @tier.each do |t| %>
+        <td>
+        
+          <%= Connection.where(tier_id: t.id,entity_id: e.id).first.price %>
+        
+        </td>
       <% end %>
     </tr>
   <% end %>

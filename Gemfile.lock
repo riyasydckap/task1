@@ -330,6 +330,8 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
+  jquery-rails (~> 4.4)
+  jquery-ui-rails (~> 6.0)
   kaminari-mongoid (~> 1.0)
   listen (~> 3.3)
   mongoid (~> 7.3)

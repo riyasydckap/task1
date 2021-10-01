@@ -10,5 +10,8 @@ class PagesController < ApplicationController
 
   end
 
+  def order
+    @box = Box.all.pluck(:name,:id)
+  end
   
 end

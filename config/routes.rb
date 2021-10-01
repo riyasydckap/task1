@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :boxes, :drops , :entities
 
   get '/index', to: 'pages#index', as: 'index'
+  get '/order', to: 'pages#order', as: 'order'
+  
+  #AJAX
+  get '/box_click', to: 'boxes#box_click', as: 'box_click'
   # get 'boxes/new', to: 'boxes#new', as: 'box_new'
   # post 'boxes/create', to: 'boxes#create', as: 'box_create'
   # get 'boxes/show/:id', to: 'pages#box_show', as: 'box_show'

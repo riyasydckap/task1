@@ -7,7 +7,7 @@
   <br>
   <% @tiers.each do |t| %>
     <%= f.label t  %>
-    <%= f.number_field :price , multiple: true %>
+    <%= f.number_field :price ,multiple: true %>
     <br>
   <% end %>
   <%= f.text_field :drop_id,value: @drop.to_s, hidden: true %>

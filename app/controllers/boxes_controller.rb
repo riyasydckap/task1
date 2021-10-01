@@ -1,7 +1,7 @@
 class BoxesController < ApplicationController
   def show
     @box = Box.where(id: params[:id]).first
-    @tier = Tier.all.pluck(:name)
+    @tier = Tier.all
   end
   
   def new
@@ -9,11 +9,35 @@ class BoxesController < ApplicationController
   end
   def create
     @box = Box.new(box_params)
-    if @box.save
+    if @box.save    
+      
       redirect_to index_path
     else
       redirect_to index_path
     end
+  end
+
+  def box_click
+    @box = Box.where(id: params[:box]).first
+    @drops = Drop.where(box_id: @box.id).all
+    @res = []
+    usr_membership = Tier.where(name: 'Gold').first
+
+    @drops.each do |drop|
+
+      @ans =  [drop.name, drop.id,drop.entities.all.pluck(:name,:id)]
+
+      drop.entities.all.each_with_index do |en,i|
+        price = Connection.where(tier_id: usr_membership, entity_id: en.id).first.price
+        @ans[2][i] << price
+      end
+      @res << @ans
+      # @ent = Entity.where(drop_id: drop.id).all.pluck()
+    end
+    respond_to do |format|
+      format.json {render json: @res }
+    end
+
   end
 
   private

@@ -4,9 +4,11 @@ class Entity
 
   field :name, type: String
   field :msrp, type: Integer
-  field :price, type: Hash
+  # field :price, type: Hash
 
   belongs_to :drop
+  has_many :connection, dependent: :destroy
 
+  attr_accessor :price
 
 end

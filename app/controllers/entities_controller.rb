@@ -8,12 +8,18 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(name: entity_params[:name], msrp: entity_params[:msrp], drop_id: entity_params[:drop_id])
     @box = Drop.where(id: entity_params[:drop_id]).first.box
-    @tier = Tier.all.pluck(:name)
-    @entity.price = {} 
+    @tier = Tier.all
+    # @entity.price = {} 
     @tier.each_with_index do |t,i|
-      @entity.price[t] = entity_params['price'][i]
+      @en = Connection.new(price: entity_params['price'][i],tier_id: t,entity_id: @entity)
+      if @en.save
+        
+      else
+        raise @en.errors.inspect
+      end
     end
     if @entity.save
+      
       redirect_to box_path(@box)
     else
       raise @entity.errors.inspect
