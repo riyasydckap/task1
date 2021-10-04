@@ -13,7 +13,7 @@
 </div>
 <% len = @tier.length %>
 <div id="drop_show" >
-<% @box.drops.each do |d| %>
+<% @box.drops.includes([:entities]).each do |d| %>
 <div class="drop card text-center" >
   <h3 ><%= d.name %></h3>
   <table class="table table-bordered" >

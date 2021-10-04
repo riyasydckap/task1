@@ -68,3 +68,5 @@ gem "kaminari-mongoid", "~> 1.0"
 gem "jquery-rails", "~> 4.4"
 
 gem "jquery-ui-rails", "~> 6.0"
+
+gem 'bullet', group: 'development'

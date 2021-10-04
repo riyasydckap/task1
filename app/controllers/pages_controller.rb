@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    @box = Box.all
+    @box = Box.includes([:drops])
     @box_new = Box.new
   end
 

@@ -4,7 +4,7 @@
 <% @box.each do |b| %>
   <li><%= link_to b.name, box_path(b) %></li>
   <ul>
-  <% b.drops.each do |d| %>
+  <% b.drops.includes([:entities]).each do |d| %>
     <li><%= d.name %></li>
     <ul>
       <% d.entities.each do |e| %>
