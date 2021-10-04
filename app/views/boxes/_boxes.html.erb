@@ -1,0 +1,11 @@
+<li><%= link_to b.name, box_path(b) %></li>
+  <ul>
+  <% b.drops.each do |d| %>
+    <li><%= d.name %></li>
+    <ul>
+      <% d.entities.each do |e| %>
+        <li><%= e.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </ul>

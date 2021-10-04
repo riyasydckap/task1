@@ -1,0 +1,7 @@
+<% if @box.errors.any? %>
+  $('.alert .alert-danger').text("Error Occured!!")
+<% else %>
+  $('#box_show').append('<%= j render "boxes/boxes", b: @box %>')
+  $('#add_box a ').show()
+  $('#box_form').remove()
+<% end %>

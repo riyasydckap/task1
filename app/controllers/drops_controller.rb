@@ -7,11 +7,14 @@ class DropsController < ApplicationController
 
   def create
     @drop = Drop.new(drop_params)
+    @tier = Tier.all
+    respond_to do |format|
     if @drop.save
-      redirect_to box_path(drop_params["box_id"])
+      format.js 
     else
       raise @drop.errors.inspect
     end
+  end
 
   end
 

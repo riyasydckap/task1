@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   def index
     @box = Box.all
+    @box_new = Box.new
   end
 
   
