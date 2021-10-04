@@ -1,21 +1,8 @@
-<style>
-.drop {
-  border: 2px solid black;
-  margin: 4px;
-}
-</style>
+<% d = @drop %>
 
-<br><br><br><br><br>
-<%= link_to 'Home', index_path %>
-<h1><%= @box.name %></h1>
-<div class="add_drop" >
-<%= link_to "Add drop", new_drop_path(@box), remote: true %>
-</div>
-<% len = @tier.length %>
-<div id="drop_show" >
-<% @box.drops.each do |d| %>
-<div class="drop card text-center" >
-  <h3 ><%= d.name %></h3>
+
+$("#drop_show").append(`<div class="drop " >
+  <h3><%= d.name %></h3>
   <table class="table table-bordered" >
   <thead>
   <tr class="table-info" >
@@ -45,7 +32,6 @@
   </tbody>
   
   </table>
-  </div>
-  <br>
-<% end %>
-</div>
+  </div>`)
+$(".add_drop a").show()
+$(".add_drop form").remove()

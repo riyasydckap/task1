@@ -1,5 +1,6 @@
+<div class="alert alert-danger" hidden></div>
 <h1>Boxes</h1>
-<ul>
+<ul id="box_show" >
 <% @box.each do |b| %>
   <li><%= link_to b.name, box_path(b) %></li>
   <ul>
@@ -14,5 +15,6 @@
   </ul>
 <% end %>
 </ul>
-
-<%= link_to "Add Box", new_box_path %>
+<div id="add_box" >
+<%= link_to "Add Box", new_box_path , remote: true%>
+</div>

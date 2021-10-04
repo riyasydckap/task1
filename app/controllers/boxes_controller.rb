@@ -9,11 +9,14 @@ class BoxesController < ApplicationController
   end
   def create
     @box = Box.new(box_params)
-    if @box.save    
-      
-      redirect_to index_path
-    else
-      redirect_to index_path
+    respond_to do |format|
+      if @box.save    
+        format.js
+        #redirect_to index_path
+      else
+        #redirect_to index_path
+        format.js
+      end
     end
   end
 
