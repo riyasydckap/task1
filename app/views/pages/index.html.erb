@@ -2,19 +2,9 @@
 <h1>Boxes</h1>
 <ul id="box_show" >
 <% @box.each do |b| %>
-  <li><%= link_to b.name, box_path(b) %></li>
-  <ul>
-  <% b.drops.includes([:entities]).each do |d| %>
-    <li><%= d.name %></li>
-    <ul>
-      <% d.entities.each do |e| %>
-        <li><%= e.name %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  </ul>
+  <li><%= link_to b[1], box_path(b[0]) %></li>
 <% end %>
 </ul>
 <div id="add_box" >
-<%= link_to "Add Box", new_box_path , remote: true%>
+<%= link_to "Add Box", new_box_path , remote: true %>
 </div>

@@ -1,4 +1,5 @@
 class DropsController < ApplicationController
+  
   def new
     # raise params.inspect
     @drop = Drop.new
@@ -13,6 +14,7 @@ class DropsController < ApplicationController
       format.js 
     else
       raise @drop.errors.inspect
+      # format.js
     end
   end
 

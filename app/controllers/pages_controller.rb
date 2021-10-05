@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 
   def index
-    @box = Box.includes([:drops])
-    @box_new = Box.new
+    @box = Box.all.pluck(:id,:name)
+    
   end
 
   

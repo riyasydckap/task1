@@ -22,20 +22,21 @@
   <th>Name</th>
   <th>MSRP</th>
   <% @tier.each do |t| %>
-    <th><%= t.name %></th>
+    <th><%= t[0] %></th>
   <% end %>
   <span class="add_entity" ><%= link_to "Add Entity", new_entity_path(d) %></span>
   </tr>
   </thead>
   <tbody>
-  <% d.entities.each do |e| %>
+  <% d.entities.includes([:connection]).each do |e| %>
     <tr>
+      <% co = e.connection.all.pluck(:tier_id,:price) %>
       <td><%= e.name %></td>
       <td><%= e.msrp %></td>
       <% @tier.each do |t| %>
         <td>
         
-          <%= Connection.where(tier_id: t.id,entity_id: e.id).first.price %>
+          <%= (co.select{|(x,y)| x==t[1] })[0][1] %>
         
         </td>
       <% end %>

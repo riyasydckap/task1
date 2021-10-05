@@ -1,12 +1,12 @@
 var drops = 0
 var price = 0;
-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
+
 $(document).on('change','#Box',function(){
-  console.log("box")
+  console.log("id")
   $.ajax({
     url: '/box_click',
     method: 'GET',
-    data: {box: $('#Box').val()},
+    data: {id: $('#Box').val()},
     success: function(response){
       console.log(response)
       drops = response.length

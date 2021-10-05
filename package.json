@@ -1,5 +1,5 @@
 {
-  "name": "rails-2",
+  "name": "cpq_tool",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -7,9 +7,11 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "bootstrap": "^5.1.1",
-    "jquery": "3.6.0",
-    "popper.js": "1.16.1",
-    "turbolinks": "5.2.0",
+    "bootstrap-sass": "^3.4.1",
+    "jquery": "^3.6.0",
+    "local-time": "^2.1.0",
+    "popper.js": "^1.16.1",
+    "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

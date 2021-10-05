@@ -1,18 +1,20 @@
 development:
   clients:
     default:
-      uri: mongodb+srv://riyas:Riyas2000@dckap.9fjd8.mongodb.net/dckap?retryWrites=true&w=majority
+      database: task1_local
+      hosts:
+        - localhost:27017
       options:
-        server_selection_timeout: 5
-production:
-  clients:
-    default:
-      uri: mongodb+srv://riyas:Riyas2000@dckap.9fjd8.mongodb.net/dckap?retryWrites=true&w=majority
-      options:
-        server_selection_timeout: 5
-test:
-  clients:
-    default:
-      uri: mongodb+srv://riyas:Riyas2000@dckap.9fjd8.mongodb.net/dckap?retryWrites=true&w=majority
-      options:
-        server_selection_timeout: 5
+        server_selection_timeout: 1
+# production:
+#   clients:
+#     default:
+#       uri: task1_local
+#       options:
+#         server_selection_timeout: 5
+# test:
+#   clients:
+#     default:
+#       uri: task1_local
+#       options:
+#         server_selection_timeout: 5
