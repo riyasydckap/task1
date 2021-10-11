@@ -14,9 +14,11 @@ import "channels"
 
 Rails.start()
 Turbolinks.start()
+// import '../../assets/stylesheets/application.scss'
 // ActiveStorage.start()
 require("shopify_app")
 require("packs/order")
+// import 'stylesheets/application'
 
 
 

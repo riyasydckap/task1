@@ -6,15 +6,19 @@ development:
         - localhost:27017
       options:
         server_selection_timeout: 1
-# production:
-#   clients:
-#     default:
-#       uri: task1_local
-#       options:
-#         server_selection_timeout: 5
-# test:
-#   clients:
-#     default:
-#       uri: task1_local
-#       options:
-#         server_selection_timeout: 5
+production:
+  clients:
+    default:
+      database: task1_local
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 5
+test:
+  clients:
+    default:
+      database: task1_local
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 5
