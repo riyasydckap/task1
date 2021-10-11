@@ -3,6 +3,15 @@ class BoxesController < ApplicationController
   before_action :box_fetch, only: [:show, :box_click]
   def show
     # @box = Box.where(id: params[:id]).first
+    @drops = @box.drops.includes(:entities).all
+    @entities = {}
+    @drops.includes(:entities).each do |dr|
+      @entities[dr.id] = {}
+      dr.entities.includes(:connection).each do |en|
+        # raise en.connection.inspect
+        @entities[dr.id][en.id] = [en.name,en.msrp,en.connection.all.pluck(:tier_id,:price)]
+      end
+    end
     # @tier = Tier.all
   end
   
@@ -27,7 +36,8 @@ class BoxesController < ApplicationController
     @tier = Tier.all.pluck(:name,:id)
   end
   def box_fetch
-    @box = Box.where(id: params[:id]).first
+    @box = Box.where(id: params[:id]).includes([:drops]).first
+
   end
   def box_click
     # @box = Box.where(id: params[:box]).first

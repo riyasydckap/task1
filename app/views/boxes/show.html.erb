@@ -13,7 +13,7 @@
 </div>
 <% len = @tier.length %>
 <div id="drop_show" >
-<% @box.drops.includes([:entities]).each do |d| %>
+<% @drops.each do |d| %>
 <div class="drop card text-center" >
   <h3 ><%= d.name %></h3>
   <table class="table table-bordered" >
@@ -28,15 +28,15 @@
   </tr>
   </thead>
   <tbody>
-  <% d.entities.includes([:connection]).each do |e| %>
+  <% @entities[d.id].each do |e| %>
     <tr>
-      <% co = e.connection.all.pluck(:tier_id,:price) %>
-      <td><%= e.name %></td>
-      <td><%= e.msrp %></td>
+      
+      <td><%= e[1][0] %></td>
+      <td><%= e[1][1] %></td>
       <% @tier.each do |t| %>
         <td>
         
-          <%= (co.select{|(x,y)| x==t[1] })[0][1] %>
+          <%= (e[1][2].select{|(x,y)| x==t[1] })[0][1] %>
         
         </td>
       <% end %>

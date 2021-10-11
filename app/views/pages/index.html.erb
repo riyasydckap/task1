@@ -1,10 +1,29 @@
+<style>
+a {
+  text-decoration: none; 
+  color: black;
+}
+a:hover div{
+  background-color: #22cc22;
+  color: white;
+}
+</style>
+
 <div class="alert alert-danger" hidden></div>
 <h1>Boxes</h1>
-<ul id="box_show" >
+<div id="box_show" class="d-flex flex-wrap " >
 <% @box.each do |b| %>
-  <li><%= link_to b[1], box_path(b[0]) %></li>
+<a href="<%= box_path(b) %>"  >
+  <div class="card" style="width: 18rem; margin: 1rem;" >
+  <div class="card-body" >
+  <h4><%= b.name%></h4>
+  <div><b>SKU Prefix :</b><%= b.sku_prefix %></div>
+  <div><b>SKU Postfix :</b><%= b.sku_postfix %></div>
+  </div>
+  </div>
+  </a>
 <% end %>
-</ul>
+</div>
 <div id="add_box" >
-<%= link_to "Add Box", new_box_path , remote: true %>
+<%= link_to "Add Box", new_box_path , class:"btn btn-success", remote: true %>
 </div>

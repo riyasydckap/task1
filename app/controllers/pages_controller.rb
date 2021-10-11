@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    @box = Box.all.pluck(:id,:name)
+    @box = Box.all
     
   end
 
