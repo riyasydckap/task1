@@ -22,6 +22,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module Rails2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -34,9 +36,16 @@ module Rails2
     #
     config.time_zone = "Chennai"
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '/*', :headers => :any, :methods => :get
+      end
+    end
     # Allow framing to see output in Repl.it
     config.action_dispatch.default_headers = {
+      'Origin' => 'http://127.0.0.1:3000/',
+      "Allow-Control-Allow-origin" => '*',
       'X-Frame-Options' => ''
     }
   end

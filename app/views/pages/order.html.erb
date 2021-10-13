@@ -5,3 +5,11 @@
 <%= select_tag "Box", options_for_select(@box.prepend("Select")) %>
 <div id="drop_show" ></div>
 
+<div id="api-show" ></div>
+
+
+
+<script>
+  fetch('fetches/box').then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error.message))
+
+</script>

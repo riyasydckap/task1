@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-
+Rails.application.config.hosts << "riyas-dev.myshopify.com"
 Rails.application.configure do
   config.after_initialize do
     Bullet.enable        = true
